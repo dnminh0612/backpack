@@ -58,7 +58,7 @@
                 <!-- Left -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link waves-effect" href="#">Home
+                        <a class="nav-link waves-effect" href="/">Home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
@@ -102,7 +102,12 @@
                 <i class="fas fa-chart-pie mr-3"></i>Dashboard
             </a>
             <a href="{{ route('admin.users') }}" class="list-group-item list-group-item-action {{ \Request::route()->getName() == 'admin.users' ? 'active' : '' }} waves-effect">
-                <i class="fas fa-user mr-3"></i>User</a>
+                <i class="fas fa-user mr-3"></i>Tài khoản</a>
+            <a href="{{ route('admin.users') }}" class="list-group-item list-group-item-action {{ \Request::route()->getName() == 'admin.grade' ? 'active' : '' }} waves-effect">
+                <i class="fas fa-user mr-3"></i>Khối</a>
+            <a href="{{ route('admin.users') }}" class="list-group-item list-group-item-action {{ \Request::route()->getName() == 'admin.class' ? 'active' : '' }} waves-effect">
+                <i class="fas fa-user mr-3"></i>Lớp</a>
+
         </div>
 
     </div>

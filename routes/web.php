@@ -15,7 +15,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::prefix('admin')->middleware(['admin'])->group(function () {
+Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/', 'Admin\AdminController@index')->name('admin');
     Route::get('/users', 'Admin\UserController@index')->name('admin.users');
 });
