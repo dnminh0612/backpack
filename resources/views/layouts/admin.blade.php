@@ -105,8 +105,6 @@
                 <i class="fas fa-user mr-3"></i>Tài khoản</a>
             <a href="{{ route('admin.users') }}" class="list-group-item list-group-item-action {{ \Request::route()->getName() == 'admin.grade' ? 'active' : '' }} waves-effect">
                 <i class="fas fa-user mr-3"></i>Khối</a>
-            <a href="{{ route('admin.users') }}" class="list-group-item list-group-item-action {{ \Request::route()->getName() == 'admin.class' ? 'active' : '' }} waves-effect">
-                <i class="fas fa-user mr-3"></i>Lớp</a>
 
         </div>
 
@@ -390,8 +388,8 @@
             }
         }
     });
-
 </script>
+@stack('script')
 </body>
 
 </html>
