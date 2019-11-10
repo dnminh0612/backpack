@@ -2,28 +2,17 @@
 
 @section('content')
     <div class="container-fluid">
-        <table class="table">
-            <thead class="black white-text">
+        <table class="table table-striped table-bordered" id="users-table">
+            <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Tên</th>
-                <th scope="col">Email</th>
-                <th scope="col">Ngày tạo</th>
-                <th scope="col">Quyền</th>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+                <th>Action</th>
             </tr>
             </thead>
-            <tbody>
-            @foreach($users as $user)
-                <tr>
-                    <th scope="row">1</th>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>{{ $user->created_at }}</td>
-                    <td>{{ $user->admin == 1 ? 'Admin' : 'Người dùng' }}</td>
-                </tr>
-            @endforeach
-
-            </tbody>
         </table>
     </div>
     <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -56,6 +45,14 @@
                             <input type="text" id="form32" class="form-control validate">
                             <label data-error="wrong" data-success="right" for="form32">Mô tả</label>
                         </div>
+
+                        <!-- Subject -->
+                        <label>Quyền</label>
+                        <select name="role" class="browser-default custom-select mb-4">
+                            <option value="1">Admin</option>
+                            <option value="0" selected>Người dùng</option>
+                        </select>
+
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
                         <button class="btn btn-unique col-4">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
@@ -72,10 +69,24 @@
 @endsection
 
 @push('script')
-<script>
-    $('#form-admin-add-user').submit(function (e) {
-        e.preventDefault();
-        $(this).find('.btn-unique').html(' <i class="fas fa-circle-notch fa-spin fa-lg"></i>')
-    });
-</script>
+    <script>
+        $('#form-admin-add-user').submit(function (e) {
+            e.preventDefault();
+            $(this).find('.btn-unique').html(' <i class="fas fa-circle-notch fa-spin fa-lg"></i>')
+        });
+        $('#users-table').DataTable({
+            processing: true,
+            serverSide: true,
+            "order": [[ 4, "desc" ]],
+            ajax: '{!! route('datatables.listUser') !!}',
+            columns: [
+                { data: 'id', name: 'id' },
+                { data: 'name', name: 'name' },
+                { data: 'email', name: 'email' },
+                { data: 'created_at', name: 'created_at' },
+                { data: 'updated_at', name: 'updated_at' },
+                { data: 'updated_at', name: 'updated_at' }
+            ]
+        });
+    </script>
 @endpush

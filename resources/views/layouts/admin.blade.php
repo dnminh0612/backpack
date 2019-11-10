@@ -14,6 +14,9 @@
     <link href="{{ asset('css/admin/mdb.min.css') }}" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="{{ asset('css/admin/style.min.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"/>
+
     <style>
 
         .map-container{
@@ -32,7 +35,7 @@
     </style>
 </head>
 
-<body class="grey lighten-3">
+<body>
 
 <!--Main Navigation-->
 <header>
@@ -101,10 +104,10 @@
             <a href="{{ route('admin') }}" class="list-group-item list-group-item-action {{ \Request::route()->getName() == 'admin' ? 'active' : '' }} waves-effect">
                 <i class="fas fa-chart-pie mr-3"></i>Dashboard
             </a>
+            <a href="{{ route('admin.khoi') }}" class="list-group-item list-group-item-action {{ \Request::route()->getName() == 'admin.khoi' ? 'active' : '' }} waves-effect">
+                <i class="fas fa-user mr-3"></i>Khối</a>
             <a href="{{ route('admin.users') }}" class="list-group-item list-group-item-action {{ \Request::route()->getName() == 'admin.users' ? 'active' : '' }} waves-effect">
                 <i class="fas fa-user mr-3"></i>Tài khoản</a>
-            <a href="{{ route('admin.users') }}" class="list-group-item list-group-item-action {{ \Request::route()->getName() == 'admin.grade' ? 'active' : '' }} waves-effect">
-                <i class="fas fa-user mr-3"></i>Khối</a>
 
         </div>
 
@@ -182,7 +185,9 @@
 <script type="text/javascript" src="{{ asset('js/admin/bootstrap.min.js') }}"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="{{ asset('js/admin/mdb.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/admin/datatables.min.js') }}"></script>
 <!-- Initializations -->
+<!-- DataTables -->
 <script type="text/javascript">
     // Animations initialization
     new WOW().init();

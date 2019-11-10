@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'admin' => 1,
             'password' => bcrypt('123123'),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
         ]);
     }
 }

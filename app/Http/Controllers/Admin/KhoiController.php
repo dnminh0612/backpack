@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Khoi;
-use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class KhoiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data['users'] = User::all();
-        return view('admin.list_user', $data);
+        $data['khoi'] = Khoi::all();
+        return view('admin.khoi', $data);
+
     }
 
     /**
@@ -27,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.form_khoi');
     }
 
     /**
@@ -38,7 +38,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $khoi = new Khoi();
+        $khoi->name = $request->name;
+        if ($khoi->save()){
+            return redirect()->route('admin.khoi');
+        }
+
     }
 
     /**
@@ -83,6 +88,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+       Khoi::destroy($id);
+        return redirect()->route('admin.khoi');
     }
 }
