@@ -104,7 +104,8 @@
             <a href="{{ route('admin') }}" class="list-group-item list-group-item-action {{ \Request::route()->getName() == 'admin' ? 'active' : '' }} waves-effect">
                 <i class="fas fa-chart-pie mr-3"></i>Dashboard
             </a>
-            <a href="{{ route('admin.khoi') }}" class="list-group-item list-group-item-action {{ \Request::route()->getName() == 'admin.khoi' ? 'active' : '' }} waves-effect">
+            <a href="{{ route('admin.khoi') }}" class="list-group-item list-group-item-action {{ \Request::route()->getName() == 'admin.khoi' ? 'active' : '' }}
+            {{ \Request::route()->getName() == 'admin.khoi_them' ? 'active' : '' }} waves-effect">
                 <i class="fas fa-user mr-3"></i>Khối</a>
             <a href="{{ route('admin.users') }}" class="list-group-item list-group-item-action {{ \Request::route()->getName() == 'admin.users' ? 'active' : '' }} waves-effect">
                 <i class="fas fa-user mr-3"></i>Tài khoản</a>

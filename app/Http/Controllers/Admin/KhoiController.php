@@ -15,7 +15,7 @@ class KhoiController extends Controller
      */
     public function index()
     {
-        $data['khoi'] = Khoi::all();
+        $data['khoi'] = Khoi::orderBy('id', 'desc')->get();
         return view('admin.khoi', $data);
 
     }
