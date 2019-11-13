@@ -15,6 +15,10 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('/socket', 'SocketController@index');
+Route::post('/sendmessage', 'SocketController@sendMessage');
+Route::get('/chat', 'SocketController@writemessage');
+
 Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/', 'Admin\AdminController@index')->name('admin');
     Route::get('/users', 'Admin\UserController@index')->name('admin.users');
