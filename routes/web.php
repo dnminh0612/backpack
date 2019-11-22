@@ -22,6 +22,7 @@ Route::get('/chat', 'SocketController@writemessage');
 Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/', 'Admin\AdminController@index')->name('admin');
     Route::get('/users', 'Admin\UserController@index')->name('admin.users');
+    Route::get('/user/{id}', 'Admin\UserController@edit')->name('admin.user_edit');
     Route::get('/khoi', 'Admin\KhoiController@index')->name('admin.khoi');
     Route::get('/khoi/them', 'Admin\KhoiController@create')->name('admin.khoi_them');
     Route::post('/khoi/them/store', 'Admin\KhoiController@store')->name('admin.khoi_them_store');

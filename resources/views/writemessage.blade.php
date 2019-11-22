@@ -26,7 +26,7 @@
 
 @push('scripts')
     <script>
-        var socket = io.connect('http://localhost:6001');
+        var socket = io.connect({{url('/')}}+':6001');
         console.log(socket);
         $('#frm-send').submit(function (e) {
             e.preventDefault();
@@ -46,7 +46,6 @@
             }else{
                 $( ".card-body" ).append( "<div class='text-left mr-4 mt-1'>Người ta</div><div class='text-left p-2 pr-4 '><span class='border rounded-pill bg-light pt-2 pb-2 pl-4 pr-4'>"+data.message+"</span></div>" );
             }
-
         });
     </script>
 @endpush
