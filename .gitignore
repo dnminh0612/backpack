@@ -5,6 +5,7 @@
 /vendor
 /.idea
 package-lock.json
+composer.lock
 .env
 .env.backup
 .phpunit.result.cache
