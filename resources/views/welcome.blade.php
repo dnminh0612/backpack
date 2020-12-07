@@ -27,6 +27,7 @@
                 <div class="bg-white">
                     <a href="/admin">Admin</a>
                 </div>
+                <b class="bg-white px-6 py-6 mt-2">{{ Config::get('settings.app_name', 'MINH') }}</b>
             </div>
         </div>
     </body>
