@@ -22,7 +22,12 @@
     </head>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
-            <h1 class="text-center bg-white px-6 py-6">BackPack</h1>
+            <div class="text-center">
+                <h1 class="text-center bg-white px-6 py-6">BackPack</h1>
+                <div class="bg-white">
+                    <a href="/admin">Admin</a>
+                </div>
+            </div>
         </div>
     </body>
 </html>
